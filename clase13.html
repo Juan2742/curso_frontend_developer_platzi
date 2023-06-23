@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --dark: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .product-detail {
+            width: 360px;
+            padding: 24px;
+            position: absolute;
+            right: 0;
+            box-sizing: border-box;
+        }
+        .title-container {
+            display: flex;
+        }
+        .title-container img {
+            transform: rotate(180deg);
+            margin-right: 14px;
+        }
+        .title {
+            font-size: var(--lg);
+            font-weight: bold;
+        }
+        .orders {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center;
+            background: var(--text-input-field);
+            margin-bottom: 24px;
+            border-radius: 8px;
+            padding: 0 24px;
+        }
+        .orders p:nth-child(1) {
+            display: grid;
+            grid-template-columns: auto;
+        }
+        .orders p span:nth-child(1) {
+            font-size: var(--md);
+            font-weight: bold;
+        }
+        .orders p:nth-child(2){
+            text-align: right;
+            font-weight: bold;
+        }
+        .shopping-cart {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+        .shopping-cart figure {
+            margin: 0;
+        }
+        .shopping-cart figure img {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+        }
+        .shopping-cart p:nth-child(2) {
+            color: var(--very-light-pink);
+            margin-right: 65px;
+        }
+        .shopping-cart p:nth-child(3) {
+            font-size: var(--md);
+            font-weight: bold;
+        }
+        .primary-button {
+            background: var(--hospital-green);
+            border: none;
+            border-radius: 8px;
+            color: var(--white);
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--md);
+            font-weight: bold;
+            padding: 7.5px;
+        }
+        @media (max-width: 640px) {
+            .product-detail {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="product-detail">
+        <div class="title-container">
+            <img src="./icons/flechita.svg" alt="arrow">
+            <p class="title">Shopping cart</p>
+        </div>
+        
+        <div clas="my-orders-content">         
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/guitar.jpg" alt="guitar">
+        </figure>
+        <p>Acoustic Guitar</p>
+        <p>$36,24</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/violin.jpg" alt="violin">
+        </figure>
+        <p>Violin</p>
+        <p>$72,70</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/guitar.jpg" alt="guitar">
+        </figure>
+        <p>Acoustic Guitar</p>
+        <p>$36,24</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/violin.jpg" alt="violin">
+        </figure>
+        <p>Violin</p>
+        <p>$72,70</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/guitar.jpg" alt="guitar">
+        </figure>
+        <p>Acoustic Guitar</p>
+        <p>$36,24</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="shopping-cart">
+        <figure>
+            <img src="./images/violin.jpg" alt="violin">
+        </figure>
+        <p>Violin</p>
+        <p>$72,70</p>
+        <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <div class="orders">
+                <p>
+                    <span>Total</span>
+                </p>
+                <p>$326,82</p>
+                </div>  
+        </div>
+        <button class="primary-button add-to-cart-button">
+            Check out
+        </button>
+    </aside>
+</body>
+</html>
