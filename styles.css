@@ -291,6 +291,7 @@ div ul li {
 .product-detail1 {
     width: 360px;
     padding-bottom: 24px;
+    background: var(--white);
     position: absolute;
     top: 60px;
     right: 0;

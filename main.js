@@ -8,39 +8,70 @@ const arrow = document.querySelector('.arrow')
 const shoppingCart = document.querySelector('.shopping_cart')
 const orders = document.querySelector('.product-detail')
 
+const productDetailContainer = document.querySelector('.product-detail1');
+const cross = document.querySelector('.cross')
+
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menu.addEventListener('click', toggleMobileMenu);
 shoppingCart.addEventListener('click', toggleorders);
 arrow.addEventListener('click', toggleorders);
+cross.addEventListener('click', closeProductDetailAside)
 
 function toggleDesktopMenu() {
     const isOrdersClosed = orders.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
     if (!isOrdersClosed) {
         orders.classList.add('inactive');
+    }
+    else if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
 }
 function toggleMobileMenu() {
     const isOrdersClosed = orders.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
     if (!isOrdersClosed) {
         orders.classList.add('inactive');
+    }
+    else if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
 }
 function toggleorders() {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
     
     if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     }
+    else if (!isProductDetailClosed) {
+        productDetailContainer.classList.add('inactive');
+    }
 
     orders.classList.toggle('inactive');
+}
+function openProductDetailAside() {
+        const isOrdersClosed = orders.classList.contains('inactive');
+        const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    
+    if (!isOrdersClosed) {
+        orders.classList.add('inactive');
+    }
+    else if (!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    }
+    productDetailContainer.classList.remove('inactive');
+}
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
 }
 
 const productList = []
@@ -64,13 +95,14 @@ productList.push({
 })
 
 
-/*                              LA MEJOR EN SEGURIDAD:
+/*                              LA MEJOR EN SEGURIDAD: */
 function renderProducts(arrays) {
     for (product of productList) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
     const productImage = document.createElement('img');
     productImage.classList.add('product-image');
+    productImage.addEventListener('click',openProductDetailAside);
     productImage.setAttribute('src', product.image);
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -84,9 +116,8 @@ function renderProducts(arrays) {
     productInfoDiv.appendChild(productName);
 
     const productInfoFigure = document.createElement('p');
-    productInfoFigure.innerHTML = product.name;
-    const productInfoImageCart = document.createElement('p');
-    productInfoImageCart.setAttribute('src', product.image);
+    const productInfoImageCart = document.createElement('img');
+    productInfoImageCart.setAttribute('src', './icons/bt_add_to_cart.svg');
 
     productInfoFigure.appendChild(productInfoImageCart);
 
@@ -99,13 +130,11 @@ function renderProducts(arrays) {
     cardsContainer.appendChild(productCard)
     }
 }
-*/
 
 /*
 <div class="product-card"><img src="./images/guitar.jpg" alt="guitar" class="product-image"><div class="product-info"><div><p>$36,24</p><p>Acoustic Guitar</p></div><figure><img src="./icons/bt_add_to_cart.svg" alt="add"></figure></div></div>
-                ABAJO VA A ESTAR UNA FORMA RESUMIDA PERO NO ES LA MEJOR POR SEGURIDAD
 */
-
+/*                     FORMA RESUMIDA PERO NO ES LA MEJOR POR SEGURIDAD
 function renderProducts(array) {
     for (product of array) {
         const htmlCards = '<div class="product-card"><img src="'+ product.image + '" alt="image" class="product-image"><div class="product-info"><div><p>$' + product.price + '</p><p>' + product.name + '</p></div><figure><img src="./icons/bt_add_to_cart.svg" alt="add"></figure></div></div>'
@@ -113,5 +142,6 @@ function renderProducts(array) {
         cardsContainer.innerHTML += htmlCards
     }
 }
+*/
 
 renderProducts(productList)
